@@ -14,7 +14,8 @@ do
     local max, min, PhysObj_SetBuoyancyRatio = math.max, math.min, PhysObj.SetBuoyancyRatio
     function PhysObj.SetBuoyancyRatio(this, ratio)
         if IsValid(this) and isnumber(ratio) and ratio == ratio then
-            this.m_fBuoyancyRatio = min(max(ratio, 0.0), 1.0)
+            ratio = min(max(ratio, 0.0), 1.0)
+            this.m_fBuoyancyRatio = ratio
             return PhysObj_SetBuoyancyRatio(this, ratio)
         end
     end
